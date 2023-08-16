@@ -64,7 +64,48 @@
   outline: none;
 }
 
-/* .App-logo {
+.chat_log{
+  text-align: left;
+  
+}
+
+.chat_message.gpt{
+  background-color: #444654;
+}
+
+.chat_message_center{
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding: 24px;
+  /* padding-left: 24px;
+  padding-right: 24px; */
+  
+}
+
+.profile{
+  background-color: white;
+  /* border-radius: 50%; */
+  width: 41px;
+  height: 41px;
+}
+
+.profile.gpt{
+  background-color: #0da37f;
+  /* border-radius: 0%; */
+  width: 41px;
+  height: 41px;
+}
+
+.message{
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 10px;
+
+}
+
+.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -97,4 +138,4 @@
   to {
     transform: rotate(360deg);
   }
-} */
+} 
