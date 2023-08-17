@@ -34,12 +34,3 @@ app.post('/completions', async (req, res) => {
 app.listen(PORT, () => console.log('Your server is running on PORT ' + PORT))
 
 
-
-
-// import { Configuration, OpenAIApi } from "openai";
-// const configuration = new Configuration({
-//     organization: "org-yYNJ7HfOlNYaFxWcj51ExAhl",
-//     apiKey: "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",
-// });
-// const openai = new OpenAIApi(configuration);
-// // const response = await openai.listEngines();
