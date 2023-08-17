@@ -1,15 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
 import './normalize.css';
+const fetch = require("node-fetch");
 
 function App() {
+  const getMessages = async (event) => {
+    event.preventDefault()
+    const options = {
+      method: "POST",
+      body : JSON.stringify({
+        message: "hello how are you"
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    try{
+      const response = await fetch('http://localhost:8000/completions', options)
+      const data = await response.json()
+      console.log(data)
+    } catch (error){
+      console.error(error)
+    }
+  }
+  const test = async (event) => {
+    event.preventDefault()
+    console.log("test")
+  }
   return (
     <div className="App">
       <aside className='sidebar'>
-        <div className='new_chat_button'>
+        <button className='new_chat_button'>
           <span>+</span> 
           New Chat
-        </div>
+        </button>
+        <ul className='histroy'>
+          <li>TEST</li>
+        </ul>
       </aside>
       <section className='chatbox'>
         <div className='chat_log'>
@@ -47,9 +74,15 @@ function App() {
           </div>
         </div>
         <div className='prompt_input'>
-          <textarea rows={1} className='input_textarea' placeholder='Send a message'>
-
-          </textarea>
+          <div className='input_textarea'>
+            <input placeholder='Send a message'/>
+            <div id="submit" onClick={getMessages}>➤</div>
+          </div>
+          {/* <form onSubmit={getMessages}>
+            <input rows={1} className='input_textarea' placeholder='Send a message'>
+            
+            </input>
+          </form> */}
         </div>
       </section>
       

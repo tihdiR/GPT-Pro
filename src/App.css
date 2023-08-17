@@ -31,6 +31,8 @@
   border-radius: 5px;
   border: 1px solid #7A7776;
   transition: ease 0.2s;
+  background-color: #202123;
+  color: white;
 }
 
 .new_chat_button:hover {
@@ -44,6 +46,11 @@
 }
 
 .prompt_input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding: 30px;
   position: absolute;
   bottom: 0;
@@ -51,16 +58,29 @@
   right: 0;
 }
 
+#submit{
+ 
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  cursor: pointer;
+}
+
 .input_textarea{
-  background-color: #40414f;
-  width: 70%;
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+}
+
+input{
+  width: 100%;
   border: none;
   border-radius: 5px;
   border-color:none;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+  background-color: #40414f;
   color: white;
-  padding: 12px;
-  /* font-size: 1.25em; */
+  padding: 12px 15px;
   outline: none;
 }
 
