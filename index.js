@@ -1,4 +1,5 @@
 
+//key2:  
 const fetch = require("node-fetch");
 const PORT = 8000
 const express = require('express')
@@ -9,6 +10,38 @@ app.use(cors())
 
 const API_KEY = ''
 
+app.get('/models', async (req, res) => {
+    const options = {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${API_KEY}`,
+            "Content-Type": "application/json"
+        },
+        // body: JSON.stringify({
+        //     model : "gpt-3.5-turbo",
+        //     messages: [{role: "user", content: req.body.message}],
+        //     max_tokens: 100,
+        // })
+    }
+    try{
+        const response = await fetch('https://api.openai.com/v1/models', options)
+        const data = await response.json()
+        console.log(data.data);
+        res.send(data.data)
+        
+        // const data = response.data.data.map(model => model.id);
+        // res.json({
+        // models: data
+        // });
+        // console.log(response.data.data)
+        // res.json({
+        //     models: response.data.data
+        // })
+    }  catch (error) {
+        console.error(error)
+    }
+})
+
 app.post('/completions', async (req, res) => {
     const options = {
         method: "POST",
@@ -18,7 +51,7 @@ app.post('/completions', async (req, res) => {
         },
         body: JSON.stringify({
             model : "gpt-3.5-turbo",
-            messages: [{role: "user", content: "hi"}],
+            messages: [{role: "user", content: req.body.message}],
             max_tokens: 100,
         })
     }
@@ -34,12 +67,3 @@ app.post('/completions', async (req, res) => {
 app.listen(PORT, () => console.log('Your server is running on PORT ' + PORT))
 
 
-
-
-// import { Configuration, OpenAIApi } from "openai";
-// const configuration = new Configuration({
-//     organization: "org-yYNJ7HfOlNYaFxWcj51ExAhl",
-//     apiKey: "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",
-// });
-// const openai = new OpenAIApi(configuration);
-// // const response = await openai.listEngines();

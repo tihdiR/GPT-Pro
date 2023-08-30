@@ -8,6 +8,13 @@
   bottom: 0;
   right: 0;
   left: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body{
+  margin: 0;
+  padding: 0;
 }
 
 .sidebar{
@@ -17,11 +24,47 @@
   background-color: #202123;
 }
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0px;
+}
+
+.history{
+  text-align: left;
+  padding: 10px;
+  height: 100%;
+  
+}
+
+.history li{
+  list-style-type: none;
+  /* padding:15px 0; */
+  cursor: pointer;
+  font-size: large;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #7A7776;
+  transition: ease 0.2s;
+  background-color: #202123;
+  margin: 0 0 8px 0;
+
+}
+
 .chatbox{
-  flex:1;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
   /* border: 1px solid white; */
+  height: 100vh;
   background-color: #343541;
   position: relative;
+  
 }
 
 .new_chat_button{
@@ -56,6 +99,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  background-color:#343541;
 }
 
 #submit{
@@ -85,8 +129,49 @@ input{
 }
 
 .chat_log{
+  overflow: scroll;
+  overflow-y: scroll;
   text-align: left;
+  width: 100%;
+  padding: 0;
   
+}
+.chat_log li{
+  display: flex;
+  /* overflow: scroll; */
+  /* background-color: #444654; */
+  width: 100%;
+  /* padding: 20px; */
+  margin: 20px 20px;
+  text-align: left;
+}
+
+.chat_log p{
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+  text-align: left;
+}
+/* 
+.chat_log p.role{
+  min-width: 100px;
+  padding: 100px;
+} */
+
+.message_gpt{
+  background-color: #444654;
+  width: 100%;
+  /* padding: 20px; */
+  /* margin: 20px 0; */
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 10px;
+}
+
+.message{
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 10px;
+
 }
 
 .chat_message.gpt{
@@ -111,19 +196,14 @@ input{
   height: 41px;
 }
 
-.profile.gpt{
+.profile_gpt{
   background-color: #0da37f;
   /* border-radius: 0%; */
   width: 41px;
   height: 41px;
 }
 
-.message{
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 10px;
 
-}
 
 .App-logo {
   height: 40vmin;
@@ -135,7 +215,7 @@ input{
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+/* 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -158,4 +238,4 @@ input{
   to {
     transform: rotate(360deg);
   }
-} 
+}  */
